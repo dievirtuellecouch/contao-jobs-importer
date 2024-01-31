@@ -1,0 +1,33 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  DVC\JobsImporter\ExternalSource\ExternalSourceRegistry:
+
+  jobs_importer.external_source.talentstorm:
+    class: DVC\JobsImporter\ExternalSource\Sources\Talentstorm\TalentstormSource
+
+  jobs_importer.external_source.talentstorm.client:
+    class: DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Import\HttpClientFactory
+
+  DVC\JobsImporter\Import\Importer: 
+
+  DVC\JobsImporter\Command\ImportCommand:
+
+  DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Transformer\JobLocationTransformer:
+
+  DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Transformer\JobOfferTransformer:
+
+  DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Import\Reader:
+
+  DVC\JobsImporter\ExternalSource\DefaultValues\JobLocationDefaultValues:
+
+  DVC\JobsImporter\ExternalSource\DefaultValues\JobOfferDefaultValues:
+
+  DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Import\Importer:
+    arguments:
+      $clientFactory: '@jobs_importer.external_source.talentstorm.client'
+
+  DVC\JobsImporter\Repository\JobLocationRepository:
