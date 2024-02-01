@@ -32,6 +32,8 @@ class Importer
                     continue;
                 }
 
+                $importedIdsPerModel = [];
+
                 foreach ($items as $item) {
                     $model = $findOneBy->invoke(
                         null,
@@ -46,8 +48,53 @@ class Importer
                     $source->getTransformer($modelKey)->transform($item, $model);
 
                     $model->save();
+
+                    $importedIdsPerModel[] = $model->id;
+                }
+
+                foreach ($this->getCallbacks($modelKey) as $callback) {
+                    \call_user_func($callback, $importedIdsPerModel);
                 }
             }
+        }
+    }
+
+    private function getCallbacks(string $modelKey): array
+    {
+        $callbacksPerModel = [
+            SupportedModel::Offer->value => [
+                [self::class, 'disableOffers']
+            ],
+        ];
+
+        if (!\array_key_exists($modelKey, $callbacksPerModel)) {
+            return [];
+        }
+
+        return $callbacksPerModel[$modelKey];
+    }
+
+    private function disableOffers(array $importedIds): void
+    {
+        if (empty($importedIds)) {
+            return;
+        }
+
+        $itemsToDisable = JobOfferModel::findBy(
+            [
+                'externalSource != ?',
+                \sprintf('id NOT IN (%s)', \join(',', \array_map(fn($id) => \intval($id), $importedIds))),
+            ],
+            ['']
+        );
+
+        if (empty($itemsToDisable)) {
+            return;
+        }
+        
+        foreach ($itemsToDisable as $item) {
+            $item->published = 0;
+            $item->save();
         }
     }
 }
