@@ -4,6 +4,8 @@ services:
     autoconfigure: true
     public: false
 
+  DVC\JobsImporter\Cron\ImportCron:
+
   DVC\JobsImporter\ExternalSource\ExternalSourceRegistry:
 
   jobs_importer.external_source.talentstorm:
