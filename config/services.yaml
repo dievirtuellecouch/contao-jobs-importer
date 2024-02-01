@@ -31,3 +31,5 @@ services:
       $clientFactory: '@jobs_importer.external_source.talentstorm.client'
 
   DVC\JobsImporter\Repository\JobLocationRepository:
+
+  DVC\JobsImporter\EventListener\DataContainer\MakeFieldsReadonlyCallback:
