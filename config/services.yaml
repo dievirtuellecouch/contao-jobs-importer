@@ -34,4 +34,6 @@ services:
 
   DVC\JobsImporter\Repository\JobLocationRepository:
 
+  DVC\JobsImporter\EventListener\DataContainer\AddJobListingLabelCallback:
+
   DVC\JobsImporter\EventListener\DataContainer\MakeFieldsReadonlyCallback:
