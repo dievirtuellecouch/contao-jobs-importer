@@ -4,14 +4,14 @@ namespace DVC\JobsImporter\ExternalSource\DefaultValues;
 
 use DateTime;
 
-class JobLocationDefaultValues
+class OrganizationDefaultValues
 {
     public function getAll(): array
     {
         return [
             'tstamp' => new DateTime(),
-            'jobTypeLocation' => 'onPremise',
-            'importDate' => new DateTime(),
+            'sameAs' => '',
+            'logo' => null,
         ];
     }
 }

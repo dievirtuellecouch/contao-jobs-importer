@@ -7,6 +7,8 @@ use DVC\JobsImporter\ExternalSource\Model\ModelSearchParameter;
 use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Import\Reader;
 use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Transformer\JobLocationTransformer;
 use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Transformer\JobOfferTransformer;
+use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Transformer\OrganizationTransformer;
+use DVC\JobsImporter\ExternalSource\SupportedModel;
 use DVC\JobsImporter\ExternalSource\TransformerInterface;
 
 class TalentstormSource implements ExternalSourceInterface
@@ -18,10 +20,12 @@ class TalentstormSource implements ExternalSourceInterface
     public function __construct(
         private JobLocationTransformer $jobLocationTransformer,
         private JobOfferTransformer $jobOfferTransformer,
+        private OrganizationTransformer $organizationTransformer,
         private Reader $reader,
     ) {
         $this->transformers['location'] = $jobLocationTransformer;
         $this->transformers['offer'] = $jobOfferTransformer;
+        $this->transformers['organization'] = $organizationTransformer;
     }
 
     public function getReader(): Reader
@@ -50,6 +54,11 @@ class TalentstormSource implements ExternalSourceInterface
                 return new ModelSearchParameter(
                     columns: ['externalId = ?', \sprintf('externalSource = "%s"', $this->getName())],
                     values: ['id']
+                );
+            case SupportedModel::Organization:
+                return new ModelSearchParameter(
+                    columns: ['name = ?'],
+                    values: ['label']
                 );
         }
 

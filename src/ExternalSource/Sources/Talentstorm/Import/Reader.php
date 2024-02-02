@@ -5,6 +5,7 @@ namespace DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Import;
 use Doctrine\Common\Annotations\AnnotationReader;
 use DVC\JobsImporter\ExternalSource\ReaderInterface;
 use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\DataTransfer\JobOfferDataTransfer;
+use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\DataTransfer\OrganizationDataTransfer;
 use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Import\Importer;
 use DVC\JobsImporter\ExternalSource\SupportedModel;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
@@ -87,6 +88,25 @@ class Reader implements ReaderInterface
         return $this->locations;
     }
 
+    public function getAllOrganizations(): ?array
+    {
+        if (!empty($this->organizations)) {
+            return $this->organizations;
+        }
+
+        $availableLocations = $this->getAllLocations();
+
+        if (empty($availableLocations)) {
+            return null;
+        }
+
+        return \array_map(function($location) {
+            $organizationDataTransfer = new OrganizationDataTransfer();
+            $organizationDataTransfer->label = $location->label;
+            return $organizationDataTransfer;
+        }, $availableLocations);
+    }
+
     public function getItemsForIdentifier(SupportedModel $identifier): ?array
     {
         switch ($identifier) {
@@ -96,6 +116,10 @@ class Reader implements ReaderInterface
 
             case SupportedModel::Offer:
                 return $this->getAllAvailableJobs();
+                break;
+
+            case SupportedModel::Organization:
+                return $this->getAllOrganizations();
                 break;
         }
 

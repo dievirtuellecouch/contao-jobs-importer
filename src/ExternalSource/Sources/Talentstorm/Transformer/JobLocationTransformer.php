@@ -4,6 +4,7 @@ namespace DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Transformer;
 
 use Contao\Model;
 use DataMap\Getter\GetFiltered;
+use DataMap\Input\Input;
 use DataMap\Mapper;
 use DateTime;
 use DVC\JobsImporter\DataMap\Getter\GetDateTimestamp;
@@ -12,6 +13,7 @@ use DVC\JobsImporter\ExternalSource\DataTransferInterface;
 use DVC\JobsImporter\ExternalSource\DefaultValues\JobLocationDefaultValues;
 use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\TalentstormSource;
 use DVC\JobsImporter\ExternalSource\TransformerInterface;
+use DVC\JobsImporter\Repository\OrganizationRepository;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 
@@ -20,6 +22,7 @@ class JobLocationTransformer implements TransformerInterface
     private PropertyAccessor $propertyAccessor;
 
     public function __construct(
+        private OrganizationRepository $organizationRepository,
         private JobLocationDefaultValues $jobLocationDefaultValues,
     ) {
         $this->propertyAccessor = PropertyAccess::createPropertyAccessor();
@@ -28,6 +31,7 @@ class JobLocationTransformer implements TransformerInterface
     public function getMapper(): Mapper
     {
         return new Mapper([
+            'pid' => fn(Input $input) => $this->getOrganization($input),
             'streetAddress' => 'street',
             'postalCode' => 'zip',
             'addressLocality' => 'city',
@@ -42,7 +46,6 @@ class JobLocationTransformer implements TransformerInterface
     {
         return new Mapper([
             'tstamp' => new GetDateTimestamp('tstamp'),
-            'pid' => 'pid',
             'jobTypeLocation' => 'jobTypeLocation',
             'importDate' => new GetDateTimestamp('importDate'),
         ]);
@@ -58,5 +61,14 @@ class JobLocationTransformer implements TransformerInterface
         foreach ($modelValues as $key => $value) {
             $this->propertyAccessor->setValue($model, $key, $value);
         }
+    }
+
+    private function getOrganization(Input $input): int
+    {
+        $label = $input->get('label');
+
+        $id = $this->organizationRepository->getIdByLabel($label);
+
+        return $id ?? 1;
     }
 }

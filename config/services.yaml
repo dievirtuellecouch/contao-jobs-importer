@@ -21,6 +21,8 @@ services:
   DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Transformer\JobLocationTransformer:
 
   DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Transformer\JobOfferTransformer:
+  
+  DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Transformer\OrganizationTransformer:
 
   DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Import\Reader:
 
@@ -28,9 +30,13 @@ services:
 
   DVC\JobsImporter\ExternalSource\DefaultValues\JobOfferDefaultValues:
 
+  DVC\JobsImporter\ExternalSource\DefaultValues\OrganizationDefaultValues:
+
   DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Import\Importer:
     arguments:
       $clientFactory: '@jobs_importer.external_source.talentstorm.client'
+
+  DVC\JobsImporter\Repository\OrganizationRepository:
 
   DVC\JobsImporter\Repository\JobLocationRepository:
 

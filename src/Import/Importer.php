@@ -3,10 +3,12 @@
 namespace DVC\JobsImporter\Import;
 
 use DVC\JobsImporter\ExternalSource\ExternalSourceRegistry;
+use DVC\JobsImporter\ExternalSource\ModelSearchParameter;
 use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\TalentstormSource;
 use DVC\JobsImporter\ExternalSource\SupportedModel;
 use Plenta\ContaoJobsBasic\Contao\Model\PlentaJobsBasicJobLocationModel as JobLocationModel;
 use Plenta\ContaoJobsBasic\Contao\Model\PlentaJobsBasicOfferModel as JobOfferModel;
+use Plenta\ContaoJobsBasic\Contao\Model\PlentaJobsBasicOrganizationModel as OrganizationModel;
 
 class Importer
 {
@@ -18,6 +20,7 @@ class Importer
     public function importAll(): void
     {
         $modelClasses = [
+            SupportedModel::Organization->value => OrganizationModel::class,
             SupportedModel::Location->value => JobLocationModel::class,
             SupportedModel::Offer->value => JobOfferModel::class,
         ];
