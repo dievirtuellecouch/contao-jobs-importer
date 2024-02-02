@@ -26,6 +26,7 @@ class Importer
 
             foreach ($modelClasses as $modelKey => $modelClassName) {
                 $items = $source->getReader()->getItemsForIdentifier(SupportedModel::from($modelKey));
+                $searchParameters = $source->getSearchParamterForIdentifier(SupportedModel::from($modelKey));
                 $findOneBy = new \ReflectionMethod($modelClassName, 'findOneBy');
 
                 if (empty($items)) {
@@ -37,8 +38,8 @@ class Importer
                 foreach ($items as $item) {
                     $model = $findOneBy->invoke(
                         null,
-                        ['externalId = ?', 'externalSource = ?'],
-                        [$item->id, $source->getName()],
+                        $searchParameters->getColumns(),
+                        $searchParameters->getValuesForItem($item),
                     );
 
                     if (empty($model)) {

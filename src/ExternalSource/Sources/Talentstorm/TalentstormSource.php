@@ -3,6 +3,7 @@
 namespace DVC\JobsImporter\ExternalSource\Sources\Talentstorm;
 
 use DVC\JobsImporter\ExternalSource\ExternalSourceInterface;
+use DVC\JobsImporter\ExternalSource\Model\ModelSearchParameter;
 use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Import\Reader;
 use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Transformer\JobLocationTransformer;
 use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Transformer\JobOfferTransformer;
@@ -37,6 +38,23 @@ class TalentstormSource implements ExternalSourceInterface
         return $this->transformers[$name];
     }
 
+    public function getSearchParamterForIdentifier(SupportedModel $identifier): ?ModelSearchParameter
+    {
+        switch ($identifier) {
+            case SupportedModel::Location:
+                return new ModelSearchParameter(
+                    columns: ['externalId = ?', \sprintf('externalSource = "%s"', $this->getName())],
+                    values: ['id']
+                );
+            case SupportedModel::Offer:
+                return new ModelSearchParameter(
+                    columns: ['externalId = ?', \sprintf('externalSource = "%s"', $this->getName())],
+                    values: ['id']
+                );
+        }
+
+        return null;
+    }
 
     public function getName(): string
     {
