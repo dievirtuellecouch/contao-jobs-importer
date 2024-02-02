@@ -28,6 +28,18 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
+                ->arrayNode('mapping')
+                    ->children()
+                        ->arrayNode('organization')
+                            ->arrayPrototype()
+                                ->children()
+                                    ->scalarNode('label')->end()
+                                    ->integerNode('id')->end()
+                                ->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
             ->end()
         ;
 

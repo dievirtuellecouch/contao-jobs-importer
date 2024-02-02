@@ -30,6 +30,9 @@ class JobsImporterExtension extends Extension
 
         $sourceRegistryDefinition = $container->getDefinition(\DVC\JobsImporter\ExternalSource\ExternalSourceRegistry::class);
         $sourceRegistryDefinition->setArgument('$configuredSources', $sources);
+
+        $organizationRepositoryDefinition = $container->getDefinition(\DVC\JobsImporter\Repository\OrganizationRepository::class);
+        $organizationRepositoryDefinition->setArgument('$mappings', $processedConfiguration['mapping']['organization'] ?? []);
     }
 
     private function initExternalSources(ContainerBuilder $container, array $sources): array
