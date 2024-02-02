@@ -43,3 +43,5 @@ services:
   DVC\JobsImporter\EventListener\DataContainer\AddJobListingLabelCallback:
 
   DVC\JobsImporter\EventListener\DataContainer\MakeFieldsReadonlyCallback:
+
+  DVC\JobsImporter\EventListener\InsertTagListener:
