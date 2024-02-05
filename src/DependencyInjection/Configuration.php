@@ -9,7 +9,7 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder('jobs_importer');
+        $treeBuilder = new TreeBuilder('jobs_importer_to_plenta_basic');
 
         $treeBuilder->getRootNode()
             ->children()

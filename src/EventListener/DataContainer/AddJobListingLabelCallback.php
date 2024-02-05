@@ -29,13 +29,13 @@ class AddJobListingLabelCallback
 
     private function buildSubLabel(array $row): string
     {
-        $externalSourceDisplay = $this->translator->trans('dvc_jobs_importer.external_source.' . $row['externalSource'], [], 'contao_default');
+        $externalSourceDisplay = $this->translator->trans('dvc_jobs_importer_to_plenta_basic.external_source.' . $row['externalSource'], [], 'contao_default');
         $importDateDisplay = Date::parse(Config::get('datimFormat'), $row['importDate']);
         
         $displayText = \str_replace(
             ['{source}', '{date}'],
             [$externalSourceDisplay, $importDateDisplay],
-            $this->translator->trans('dvc_jobs_importer.job_offer.sub_label', [], 'contao_default')
+            $this->translator->trans('dvc_jobs_importer_to_plenta_basic.job_offer.sub_label', [], 'contao_default')
         );
 
         return \sprintf(

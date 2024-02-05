@@ -9,7 +9,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand('dvc-jobs-importer:import-all')]
+#[AsCommand('dvc-jobs-importer-to-plenta-basic:import-all')]
 class ImportCommand extends Command
 {
     public function __construct(

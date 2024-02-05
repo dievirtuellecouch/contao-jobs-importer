@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\Filesystem\Path;
 
-class JobsImporterExtension extends Extension
+class JobsImporterToPlentaBasicExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container): void
     {
@@ -44,7 +44,7 @@ class JobsImporterExtension extends Extension
         $result = [];
 
         foreach ($sources as $sourceConfig) {
-            $sourceName = 'jobs_importer.external_source.' . $sourceConfig['type'];
+            $sourceName = 'jobs_importer_to_plenta_basic.external_source.' . $sourceConfig['type'];
 
             if (!$container->has($sourceName)) {
                 continue;

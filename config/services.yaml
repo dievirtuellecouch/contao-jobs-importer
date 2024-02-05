@@ -8,10 +8,10 @@ services:
 
   DVC\JobsImporterToPlentaBasic\ExternalSource\ExternalSourceRegistry:
 
-  jobs_importer.external_source.talentstorm:
+  jobs_importer_to_plenta_basic.external_source.talentstorm:
     class: DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\TalentstormSource
 
-  jobs_importer.external_source.talentstorm.client:
+  jobs_importer_to_plenta_basic.external_source.talentstorm.client:
     class: DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\Import\HttpClientFactory
 
   DVC\JobsImporterToPlentaBasic\Import\Importer: 
@@ -34,7 +34,7 @@ services:
 
   DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\Import\Importer:
     arguments:
-      $clientFactory: '@jobs_importer.external_source.talentstorm.client'
+      $clientFactory: '@jobs_importer_to_plenta_basic.external_source.talentstorm.client'
 
   DVC\JobsImporterToPlentaBasic\Repository\OrganizationRepository:
 
