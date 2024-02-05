@@ -1,9 +1,9 @@
 <?php
 
-namespace DVC\JobsImporter\Command;
+namespace DVC\JobsImporterToPlentaBasic\Command;
 
 use Contao\CoreBundle\Framework\ContaoFramework;
-use DVC\JobsImporter\Import\Importer;
+use DVC\JobsImporterToPlentaBasic\Import\Importer;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

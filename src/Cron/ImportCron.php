@@ -1,9 +1,9 @@
 <?php
 
-namespace DVC\JobsImporter\Cron;
+namespace DVC\JobsImporterToPlentaBasic\Cron;
 
 use Contao\CoreBundle\DependencyInjection\Attribute\AsCronJob;
-use DVC\JobsImporter\Import\Importer;
+use DVC\JobsImporterToPlentaBasic\Import\Importer;
 
 #[AsCronJob('hourly')]
 class ImportCron

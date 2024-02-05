@@ -1,8 +1,8 @@
 <?php
 
-namespace DVC\JobsImporter\DependencyInjection;
+namespace DVC\JobsImporterToPlentaBasic\DependencyInjection;
 
-use DVC\JobsImporter\DependencyInjection\Configuration;
+use DVC\JobsImporterToPlentaBasic\DependencyInjection\Configuration;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
@@ -28,10 +28,10 @@ class JobsImporterExtension extends Extension
             $sources = $this->initExternalSources($container, $processedConfiguration['sources']);
         }
 
-        $sourceRegistryDefinition = $container->getDefinition(\DVC\JobsImporter\ExternalSource\ExternalSourceRegistry::class);
+        $sourceRegistryDefinition = $container->getDefinition(\DVC\JobsImporterToPlentaBasic\ExternalSource\ExternalSourceRegistry::class);
         $sourceRegistryDefinition->setArgument('$configuredSources', $sources);
 
-        $organizationRepositoryDefinition = $container->getDefinition(\DVC\JobsImporter\Repository\OrganizationRepository::class);
+        $organizationRepositoryDefinition = $container->getDefinition(\DVC\JobsImporterToPlentaBasic\Repository\OrganizationRepository::class);
         $organizationRepositoryDefinition->setArgument('$mappings', $processedConfiguration['mapping']['organization'] ?? []);
     }
 

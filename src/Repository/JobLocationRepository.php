@@ -1,6 +1,6 @@
 <?php
 
-namespace DVC\JobsImporter\Repository;
+namespace DVC\JobsImporterToPlentaBasic\Repository;
 
 use Plenta\ContaoJobsBasic\Contao\Model\PlentaJobsBasicJobLocationModel as JobLocationModel;
 

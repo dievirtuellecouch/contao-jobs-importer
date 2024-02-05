@@ -1,6 +1,6 @@
 <?php
 
-namespace DVC\JobsImporter\EventListener\DataContainer;
+namespace DVC\JobsImporterToPlentaBasic\EventListener\DataContainer;
 
 use Contao\CoreBundle\DependencyInjection\Attribute\AsCallback;
 use Contao\DataContainer;

@@ -1,6 +1,6 @@
 <?php
 
-namespace DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Transformer;
+namespace DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\Transformer;
 
 use Contao\Model;
 use DataMap\Getter\GetBoolean;
@@ -11,13 +11,13 @@ use DataMap\Getter\GetString;
 use DataMap\Getter\GetTranslated;
 use DataMap\Input\Input;
 use DataMap\Mapper;
-use DVC\JobsImporter\DataMap\Getter\GetDateTimestamp;
-use DVC\JobsImporter\DataMap\Getter\GetDefault;
-use DVC\JobsImporter\ExternalSource\DataTransferInterface;
-use DVC\JobsImporter\ExternalSource\DefaultValues\JobOfferDefaultValues;
-use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\TalentstormSource;
-use DVC\JobsImporter\ExternalSource\TransformerInterface;
-use DVC\JobsImporter\Repository\JobLocationRepository;
+use DVC\JobsImporterToPlentaBasic\DataMap\Getter\GetDateTimestamp;
+use DVC\JobsImporterToPlentaBasic\DataMap\Getter\GetDefault;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\DataTransferInterface;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\DefaultValues\JobOfferDefaultValues;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\TalentstormSource;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\TransformerInterface;
+use DVC\JobsImporterToPlentaBasic\Repository\JobLocationRepository;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 

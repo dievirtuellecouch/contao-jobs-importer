@@ -1,15 +1,15 @@
 <?php
 
-namespace DVC\JobsImporter\ExternalSource\Sources\Talentstorm;
+namespace DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm;
 
-use DVC\JobsImporter\ExternalSource\ExternalSourceInterface;
-use DVC\JobsImporter\ExternalSource\Model\ModelSearchParameter;
-use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Import\Reader;
-use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Transformer\JobLocationTransformer;
-use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Transformer\JobOfferTransformer;
-use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Transformer\OrganizationTransformer;
-use DVC\JobsImporter\ExternalSource\SupportedModel;
-use DVC\JobsImporter\ExternalSource\TransformerInterface;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\ExternalSourceInterface;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\Model\ModelSearchParameter;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\Import\Reader;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\Transformer\JobLocationTransformer;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\Transformer\JobOfferTransformer;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\Transformer\OrganizationTransformer;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\SupportedModel;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\TransformerInterface;
 
 class TalentstormSource implements ExternalSourceInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace DVC\JobsImporter\ExternalSource\DefaultValues;
+namespace DVC\JobsImporterToPlentaBasic\ExternalSource\DefaultValues;
 
 use DateTime;
 

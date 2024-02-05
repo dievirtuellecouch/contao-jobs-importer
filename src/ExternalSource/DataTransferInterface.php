@@ -1,6 +1,6 @@
 <?php
 
-namespace DVC\JobsImporter\ExternalSource;
+namespace DVC\JobsImporterToPlentaBasic\ExternalSource;
 
 interface DataTransferInterface
 {

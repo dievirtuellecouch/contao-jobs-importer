@@ -1,8 +1,8 @@
 <?php
 
-namespace DVC\JobsImporter\ExternalSource\Sources\Talentstorm\DataTransfer;
+namespace DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\DataTransfer;
 
-use DVC\JobsImporter\ExternalSource\DataTransferInterface;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\DataTransferInterface;
 
 class EmploymentDataTransfer implements DataTransferInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace DVC\JobsImporter\EventListener;
+namespace DVC\JobsImporterToPlentaBasic\EventListener;
 
 use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\Input;

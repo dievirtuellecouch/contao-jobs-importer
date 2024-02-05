@@ -1,9 +1,9 @@
 <?php
 
-namespace DVC\JobsImporter\ExternalSource\Model;
+namespace DVC\JobsImporterToPlentaBasic\ExternalSource\Model;
 
 use Contao\Model;
-use DVC\JobsImporter\ExternalSource\SupportedModel;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\SupportedModel;
 
 class ModelSearchParameter
 {

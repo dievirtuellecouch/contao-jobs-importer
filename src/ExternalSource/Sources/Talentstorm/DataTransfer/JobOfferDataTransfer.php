@@ -1,10 +1,10 @@
 <?php
 
-namespace DVC\JobsImporter\ExternalSource\Sources\Talentstorm\DataTransfer;
+namespace DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\DataTransfer;
 
-use DVC\JobsImporter\ExternalSource\DataTransferInterface;
-use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\DataTransfer\EmploymentDataTransfer;
-use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\DataTransfer\JobTypeDataTransfer;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\DataTransferInterface;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\DataTransfer\EmploymentDataTransfer;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\DataTransfer\JobTypeDataTransfer;
 use Symfony\Component\Serializer\Annotation\SerializedPath;
 
 class JobOfferDataTransfer implements DataTransferInterface

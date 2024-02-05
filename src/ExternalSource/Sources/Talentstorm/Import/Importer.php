@@ -1,9 +1,9 @@
 <?php
 
-namespace DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Import;
+namespace DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\Import;
 
 use Contao\CoreBundle\Monolog\ContaoContext;
-use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Import\HttpClientFactory;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\Import\HttpClientFactory;
 use Psr\Log\LoggerInterface;
 
 class Importer

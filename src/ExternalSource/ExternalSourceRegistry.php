@@ -1,8 +1,8 @@
 <?php
 
-namespace DVC\JobsImporter\ExternalSource;
+namespace DVC\JobsImporterToPlentaBasic\ExternalSource;
 
-use DVC\JobsImporter\ExternalSource\ExternalSourceInterface;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\ExternalSourceInterface;
 
 class ExternalSourceRegistry
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace DVC\JobsImporter\DataMap\Getter;
+namespace DVC\JobsImporterToPlentaBasic\DataMap\Getter;
 
 use DataMap\Getter\Getter;
 use DataMap\Input\Input;

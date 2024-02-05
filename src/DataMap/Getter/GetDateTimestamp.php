@@ -1,6 +1,6 @@
 <?php
 
-namespace DVC\JobsImporter\DataMap\Getter;
+namespace DVC\JobsImporterToPlentaBasic\DataMap\Getter;
 
 use DataMap\Common\DateUtil;
 use DataMap\Getter\GetDate;

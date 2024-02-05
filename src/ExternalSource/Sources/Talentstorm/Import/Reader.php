@@ -1,13 +1,13 @@
 <?php
 
-namespace DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Import;
+namespace DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\Import;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use DVC\JobsImporter\ExternalSource\ReaderInterface;
-use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\DataTransfer\JobOfferDataTransfer;
-use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\DataTransfer\OrganizationDataTransfer;
-use DVC\JobsImporter\ExternalSource\Sources\Talentstorm\Import\Importer;
-use DVC\JobsImporter\ExternalSource\SupportedModel;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\ReaderInterface;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\DataTransfer\JobOfferDataTransfer;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\DataTransfer\OrganizationDataTransfer;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\Import\Importer;
+use DVC\JobsImporterToPlentaBasic\ExternalSource\SupportedModel;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;

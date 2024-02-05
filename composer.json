@@ -1,5 +1,5 @@
 {
-    "name": "dvc/contao-jobs-importer",
+    "name": "dvc/contao-jobs-importer-to-plenta-basic",
     "description": "Allows to import job offers into Plenta Jobs Basic from various sources.",
     "type": "contao-bundle",
     "version": "0.1.0",
@@ -22,10 +22,10 @@
     ],
     "autoload": {
         "psr-4": {
-            "DVC\\JobsImporter\\": "src/"
+            "DVC\\JobsImporterToPlentaBasic\\": "src/"
         }
     },
     "extra": {
-        "contao-manager-plugin": "DVC\\JobsImporter\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "DVC\\JobsImporterToPlentaBasic\\ContaoManager\\Plugin"
     }
 }
