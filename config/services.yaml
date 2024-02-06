@@ -1,0 +1,47 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  DVC\JobsImporterToPlentaBasic\Cron\ImportCron:
+
+  DVC\JobsImporterToPlentaBasic\ExternalSource\ExternalSourceRegistry:
+
+  jobs_importer_to_plenta_basic.external_source.talentstorm:
+    class: DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\TalentstormSource
+
+  jobs_importer_to_plenta_basic.external_source.talentstorm.client:
+    class: DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\Import\HttpClientFactory
+
+  DVC\JobsImporterToPlentaBasic\Import\Importer: 
+
+  DVC\JobsImporterToPlentaBasic\Command\ImportCommand:
+
+  DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\Transformer\JobLocationTransformer:
+
+  DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\Transformer\JobOfferTransformer:
+  
+  DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\Transformer\OrganizationTransformer:
+
+  DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\Import\Reader:
+
+  DVC\JobsImporterToPlentaBasic\ExternalSource\DefaultValues\JobLocationDefaultValues:
+
+  DVC\JobsImporterToPlentaBasic\ExternalSource\DefaultValues\JobOfferDefaultValues:
+
+  DVC\JobsImporterToPlentaBasic\ExternalSource\DefaultValues\OrganizationDefaultValues:
+
+  DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\Import\Importer:
+    arguments:
+      $clientFactory: '@jobs_importer_to_plenta_basic.external_source.talentstorm.client'
+
+  DVC\JobsImporterToPlentaBasic\Repository\OrganizationRepository:
+
+  DVC\JobsImporterToPlentaBasic\Repository\JobLocationRepository:
+
+  DVC\JobsImporterToPlentaBasic\EventListener\DataContainer\AddJobListingLabelCallback:
+
+  DVC\JobsImporterToPlentaBasic\EventListener\DataContainer\MakeFieldsReadonlyCallback:
+
+  DVC\JobsImporterToPlentaBasic\EventListener\InsertTagListener:

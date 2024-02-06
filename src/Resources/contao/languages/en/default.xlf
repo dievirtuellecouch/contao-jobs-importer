@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file>
+        <body>
+            <trans-unit id="dvc_jobs_importer_to_plenta_basic.external_source.talentstorm">
+                <target>TalentStorm</target>
+            </trans-unit>
+            <trans-unit id="dvc_jobs_importer_to_plenta_basic.job_offer.sub_label">
+                <target>Imported from {source} on {date}</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file>
+        <body>
+            <trans-unit id="tl_plenta_jobs_basic_job_location.importDate">
+                <target>Date of the last import</target>
+            </trans-unit>
+            <trans-unit id="tl_plenta_jobs_basic_job_location.externalSource">
+                <target>External data source</target>
+            </trans-unit>
+            <trans-unit id="tl_plenta_jobs_basic_job_location.externalId">
+                <target>ID of the item at external data source</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

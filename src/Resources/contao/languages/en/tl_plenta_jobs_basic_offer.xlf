@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file>
+        <body>
+            <trans-unit id="tl_plenta_jobs_basic_offer.importDate">
+                <target>Date of the last import</target>
+            </trans-unit>
+            <trans-unit id="tl_plenta_jobs_basic_offer.externalSource">
+                <target>External data source</target>
+            </trans-unit>
+            <trans-unit id="tl_plenta_jobs_basic_offer.externalId">
+                <target>ID of the item at external data source</target>
+            </trans-unit>
+            <trans-unit id="tl_plenta_jobs_basic_offer.externalApplicationUrl">
+                <target>URL to external application form</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
