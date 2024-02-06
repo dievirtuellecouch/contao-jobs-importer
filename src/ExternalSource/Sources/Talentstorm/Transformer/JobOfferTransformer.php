@@ -18,6 +18,7 @@ use DVC\JobsImporterToPlentaBasic\ExternalSource\DefaultValues\JobOfferDefaultVa
 use DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\TalentstormSource;
 use DVC\JobsImporterToPlentaBasic\ExternalSource\TransformerInterface;
 use DVC\JobsImporterToPlentaBasic\Repository\JobLocationRepository;
+use DVC\JobsImporterToPlentaBasic\Utility\TextCleaner;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 
@@ -122,7 +123,7 @@ class JobOfferTransformer implements TransformerInterface
                 return \sprintf('<h3>%s</h3>', $part['content']);
             }
 
-            return $part['content'];
+            return TextCleaner::cleanHtml($part['content']);
         }, $parts);
 
         return \join('', $parts);
