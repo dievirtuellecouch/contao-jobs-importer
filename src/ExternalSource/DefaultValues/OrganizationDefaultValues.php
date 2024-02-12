@@ -10,8 +10,6 @@ class OrganizationDefaultValues
     {
         return [
             'tstamp' => new DateTime(),
-            'sameAs' => '',
-            'logo' => null,
         ];
     }
 }

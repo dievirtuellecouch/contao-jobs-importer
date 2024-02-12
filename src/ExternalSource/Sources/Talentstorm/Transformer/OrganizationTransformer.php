@@ -32,8 +32,6 @@ class OrganizationTransformer implements TransformerInterface
     {
         return new Mapper([
             'tstamp' => new GetDateTimestamp('tstamp'),
-            'sameAs' => 'sameAs',
-            'logo' => 'logo',
         ]);
     }
 
