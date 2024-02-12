@@ -56,11 +56,8 @@ class JobOfferTransformer implements TransformerInterface
             'validThrough' => GetFiltered::from('validThrough')->ifNull(''),
             'directApply' => new GetInteger('directApply'),
             'translations' => 'translations',
-            'teaser' => 'teaser',
-            'pageTitle' => new GetString('pageTitle', ''),
             'robots' => 'robots',
             'author' => 'author',
-            'pageDescription' => 'pageDescription',
             'importDate' => new GetDateTimestamp('importDate'),
         ]);
     }
