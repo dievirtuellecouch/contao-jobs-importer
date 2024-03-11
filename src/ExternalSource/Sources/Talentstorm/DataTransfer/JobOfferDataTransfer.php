@@ -48,7 +48,7 @@ class JobOfferDataTransfer implements DataTransferInterface
     public string $limitationType;
     public ?string $limitationDate;
 
-    public string $image;
+    public ?string $image;
 
     public function getJobofferLocations(): array
     {
