@@ -10,7 +10,7 @@ class TextCleaner
     public static function cleanHtml(string $html): string
     {
         $purifyConfig = HTMLPurifier_Config::createDefault();
-        $purifyConfig->set('HTML.Allowed', 'p,ul,ol,li,strong,em,a');
+        $purifyConfig->set('HTML.Allowed', 'p,ul,ol,li,em,a,h2,h3,h4,h5,h6');
 
         $purifier = new HTMLPurifier($purifyConfig);
         $html = $purifier->purify($html);

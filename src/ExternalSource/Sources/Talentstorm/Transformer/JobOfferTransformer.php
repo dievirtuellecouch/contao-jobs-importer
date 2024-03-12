@@ -117,7 +117,7 @@ class JobOfferTransformer implements TransformerInterface
 
         $parts = \array_map(function($part) {
             if ($part['type'] == 'headline') {
-                return \sprintf('<strong>%s</strong>', $part['content']);
+                return \sprintf('<h2>%s</h2>', $part['content']);
             }
 
             return TextCleaner::cleanHtml($part['content']);
