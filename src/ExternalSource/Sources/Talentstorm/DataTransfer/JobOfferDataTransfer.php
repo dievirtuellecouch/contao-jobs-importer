@@ -18,7 +18,7 @@ class JobOfferDataTransfer implements DataTransferInterface
     #[SerializedPath('[additional][applicationFormUrl]')]
     public string $applicationFormUrl;
 
-    public string $yearsOfExperience;
+    public ?string $yearsOfExperience;
 
     public bool $isPublished;
 
