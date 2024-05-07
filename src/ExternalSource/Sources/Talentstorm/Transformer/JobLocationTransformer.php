@@ -32,10 +32,10 @@ class JobLocationTransformer implements TransformerInterface
     {
         return new Mapper([
             'pid' => fn(Input $input) => $this->getOrganization($input),
-            'streetAddress' => 'street',
-            'postalCode' => 'zip',
-            'addressLocality' => 'city',
-            'addressRegion' => 'region',
+            'streetAddress' => GetFiltered::from('street')->trim(),
+            'postalCode' => GetFiltered::from('zip')->trim(),
+            'addressLocality' => GetFiltered::from('city')->trim(),
+            'addressRegion' => GetFiltered::from('region')->trim(),
             'addressCountry' => GetFiltered::from('country')->lower(),
             'externalSource' => new GetDefault(TalentstormSource::NAME),
             'externalId' => 'id',
