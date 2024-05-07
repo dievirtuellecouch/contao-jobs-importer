@@ -17,3 +17,9 @@ jobs_importer:
             - label: # label of the location as provided by the API
               id: # ID of the organization
 ```
+
+## Usage of Custom Employment Types
+
+### TalentStorm
+
+Import TalentStorm’s jobtype field by creating a custom employment type in Plenta, where the title of the employment type equals the label of the job type. The import will then map the job type as employment type instead of the default one’s.

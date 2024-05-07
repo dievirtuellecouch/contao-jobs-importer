@@ -18,6 +18,7 @@ use DVC\JobsImporterToPlentaBasic\ExternalSource\DefaultValues\JobOfferDefaultVa
 use DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\TalentstormSource;
 use DVC\JobsImporterToPlentaBasic\ExternalSource\TransformerInterface;
 use DVC\JobsImporterToPlentaBasic\Repository\JobLocationRepository;
+use DVC\JobsImporterToPlentaBasic\Repository\JobTypeRepository;
 use DVC\JobsImporterToPlentaBasic\Utility\TextCleaner;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
@@ -29,6 +30,7 @@ class JobOfferTransformer implements TransformerInterface
     public function __construct(
         private JobLocationRepository $jobLocationRepository,
         private JobOfferDefaultValues $jobOfferDefaultValues,
+        private JobTypeRepository $jobTypeRepository,
     ) {
         $this->propertyAccessor = PropertyAccess::createPropertyAccessor();
     }
@@ -144,6 +146,20 @@ class JobOfferTransformer implements TransformerInterface
 
     private function getEmploymentType(Input $input): array
     {
+        // Try to get and set custom job type as employment type.
+        // Note: TalentStorm differentiates between job type and
+        // employment type. We can not map this in Plenta Jobs and
+        // therefore use employment type for both attributes.
+        $jobTypeName = $input->get('jobtype.label');
+        $jobType = $this->jobTypeRepository->findOneByTitle(
+            title: $jobTypeName,
+        );
+
+        if (!empty($jobType)) {
+            return [\sprintf('CUSTOM_%s', $jobType->id)];
+        }
+
+        // Use default job type if no custom one has been set
         $translator = new GetTranslated('employment.name', [
             'Vollzeit' => 'FULL_TIME',
         ], 'OTHER');

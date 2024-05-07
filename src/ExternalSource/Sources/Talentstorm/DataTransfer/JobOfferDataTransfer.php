@@ -28,7 +28,7 @@ class JobOfferDataTransfer implements DataTransferInterface
 
     public EmploymentDataTransfer $employment;
 
-    public JobTypeDataTransfer $jobType;
+    public JobTypeDataTransfer $jobtype;
 
     // Description
     public string $descIntroductionTitle;

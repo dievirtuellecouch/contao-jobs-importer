@@ -40,6 +40,8 @@ services:
 
   DVC\JobsImporterToPlentaBasic\Repository\JobLocationRepository:
 
+  DVC\JobsImporterToPlentaBasic\Repository\JobTypeRepository:
+
   DVC\JobsImporterToPlentaBasic\EventListener\DataContainer\AddJobListingLabelCallback:
 
   DVC\JobsImporterToPlentaBasic\EventListener\DataContainer\MakeFieldsReadonlyCallback:
