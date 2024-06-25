@@ -40,6 +40,9 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
+                ->integerNode('override_date_posted_threshold')
+                    ->defaultValue(null)
+                ->end()
             ->end()
         ;
 

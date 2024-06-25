@@ -33,6 +33,9 @@ class JobsImporterToPlentaBasicExtension extends Extension
 
         $organizationRepositoryDefinition = $container->getDefinition(\DVC\JobsImporterToPlentaBasic\Repository\OrganizationRepository::class);
         $organizationRepositoryDefinition->setArgument('$mappings', $processedConfiguration['mapping']['organization'] ?? []);
+
+        $adjustJobOfferDatePostedEventSubscriberDefinition = $container->getDefinition(\DVC\JobsImporterToPlentaBasic\EventSubscriber\AdjustJobOfferDatePostedEventSubscriber::class);
+        $adjustJobOfferDatePostedEventSubscriberDefinition->setArgument('$overrideThreshold', $processedConfiguration['override_date_posted_threshold'] ?? null);
     }
 
     private function initExternalSources(ContainerBuilder $container, array $sources): array

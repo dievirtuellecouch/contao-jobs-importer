@@ -2,6 +2,7 @@
 
 namespace DVC\JobsImporterToPlentaBasic\Import;
 
+use DVC\JobsImporterToPlentaBasic\Event\PreModelPersistentEvent;
 use DVC\JobsImporterToPlentaBasic\ExternalSource\ExternalSourceRegistry;
 use DVC\JobsImporterToPlentaBasic\ExternalSource\ModelSearchParameter;
 use DVC\JobsImporterToPlentaBasic\ExternalSource\Sources\Talentstorm\TalentstormSource;
@@ -9,10 +10,12 @@ use DVC\JobsImporterToPlentaBasic\ExternalSource\SupportedModel;
 use Plenta\ContaoJobsBasic\Contao\Model\PlentaJobsBasicJobLocationModel as JobLocationModel;
 use Plenta\ContaoJobsBasic\Contao\Model\PlentaJobsBasicOfferModel as JobOfferModel;
 use Plenta\ContaoJobsBasic\Contao\Model\PlentaJobsBasicOrganizationModel as OrganizationModel;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class Importer
 {
     public function __construct(
+        private EventDispatcherInterface $eventDispatcher,
         private ExternalSourceRegistry $externalSourceRegistry,
     ) {
     }
@@ -49,7 +52,12 @@ class Importer
                         $model = new $modelClassName;
                     }
 
+                    $oldModel = clone $model;
+
                     $source->getTransformer($modelKey)->transform($item, $model);
+
+                    $preModelPersistEvent = new PreModelPersistentEvent($model, $oldModel);
+                    $this->eventDispatcher->dispatch($preModelPersistEvent);
 
                     $model->save();
 
