@@ -8,6 +8,9 @@ Add the configuration of this bundle to Contao’s `config/config.yaml` file.
 
 ```yaml
 jobs_importer:
+    # Override datePosted attribute of job offer after given threshold (in days).
+    # Leave empty to use the value given by the external source.
+    override_date_posted_threshold: 3
     sources:
         - type: 'talentstorm'
           api_key: # place the API key here
