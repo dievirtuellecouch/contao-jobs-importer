@@ -46,6 +46,6 @@ services:
 
   DVC\JobsImporterToPlentaBasic\EventListener\DataContainer\MakeFieldsReadonlyCallback:
 
-  DVC\JobsImporterToPlentaBasic\EventListener\InsertTagListener:
+  DVC\JobsImporterToPlentaBasic\InsertTag\JobExternalUrlInsertTag:
 
   DVC\JobsImporterToPlentaBasic\EventSubscriber\AdjustJobOfferDatePostedEventSubscriber:
