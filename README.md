@@ -7,7 +7,7 @@ This Contao bundle adds importing of job offers from external sources. Currently
 Add the configuration of this bundle to Contao’s `config/config.yaml` file.
 
 ```yaml
-jobs_importer:
+jobs_importer_to_plenta_basic:
     # Override datePosted attribute of job offer after given threshold (in days).
     # Leave empty to use the value given by the external source.
     override_date_posted_threshold: 3
