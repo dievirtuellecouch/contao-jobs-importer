@@ -36,7 +36,7 @@ class JobLocationTransformer implements TransformerInterface
             'postalCode' => GetFiltered::from('zip')->trim(),
             'addressLocality' => GetFiltered::from('city')->trim(),
             'addressRegion' => GetFiltered::from('region')->trim(),
-            'addressCountry' => GetFiltered::from('country')->lower(),
+            'addressCountry' => GetFiltered::from('country')->upper(),
             'externalSource' => new GetDefault(TalentstormSource::NAME),
             'externalId' => 'id',
         ]);
