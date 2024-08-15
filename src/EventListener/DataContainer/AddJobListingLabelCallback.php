@@ -39,7 +39,7 @@ class AddJobListingLabelCallback
         );
 
         return \sprintf(
-            '<span style="opacity: 0.5; padding-left: 0.5em;">%s</span>',
+            '<span class="label-info">%s</span>',
             $displayText
         );
     }
