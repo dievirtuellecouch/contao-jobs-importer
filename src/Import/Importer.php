@@ -56,7 +56,10 @@ class Importer
 
                     $source->getTransformer($modelKey)->transform($item, $model);
 
-                    $preModelPersistEvent = new PreModelPersistentEvent($model, $oldModel);
+                    $modelReference = &$model;
+                    $oldModelReference = &$oldModel;
+
+                    $preModelPersistEvent = new PreModelPersistentEvent($modelReference, $oldModelReference);
                     $this->eventDispatcher->dispatch($preModelPersistEvent);
 
                     $model->save();

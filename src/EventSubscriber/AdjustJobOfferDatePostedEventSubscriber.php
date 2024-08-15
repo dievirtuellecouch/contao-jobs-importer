@@ -35,7 +35,7 @@ class AdjustJobOfferDatePostedEventSubscriber implements EventSubscriberInterfac
             return;
         }
 
-        if (!$oldModel->datePosted) {
+        if ($oldModel === null || !$oldModel->datePosted) {
             $datePosted = new DateTime();
         }
         else {

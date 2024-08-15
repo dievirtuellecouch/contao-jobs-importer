@@ -8,8 +8,8 @@ use Symfony\Contracts\EventDispatcher\Event;
 class PreModelPersistentEvent extends Event
 {
     public function __construct(
-        private Model &$model,
-        private Model &$oldModel,
+        private Model $model,
+        private ?Model $oldModel = null,
     ) {
     }
 
@@ -18,7 +18,7 @@ class PreModelPersistentEvent extends Event
         return $this->model;
     }
 
-    public function getOldModel(): Model
+    public function getOldModel(): ?Model
     {
         return $this->oldModel;
     }
